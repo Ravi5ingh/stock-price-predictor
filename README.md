@@ -17,6 +17,7 @@ This is a PyCharm project with a virtual python environment (the 'venv' folder i
     <li>pip install yfinance</li>
     <li>pip install lxml</li>
     <li>pip install matplotlib</li>
+    <li>pip install pyyaml</li>
     <li>Right click on the file ./website/app.py and click run</li>
     <li>If there are no error messages, the website is running <a href="http://localhost:3001">here</a></li>
 </ol>
