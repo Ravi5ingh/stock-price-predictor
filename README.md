@@ -20,3 +20,7 @@ This is a PyCharm project with a virtual python environment (the 'venv' folder i
     <li>Right click on the file ./website/app.py and click run</li>
     <li>If there are no error messages, the website is running <a href="http://localhost:3001">here</a></li>
 </ol>
+
+## Architecture
+The following is the outline for the architecture for the project:
+![](viz/architecture.png)
