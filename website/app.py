@@ -1,4 +1,5 @@
 import flask as fl
+import utility.config as cf
 
 app = fl.Flask(__name__)
 
@@ -9,7 +10,7 @@ def index():
     return fl.render_template('master.html')
 
 def main():
-    app.run(host='0.0.0.0', port=3001, debug=True)
+    app.run(host='0.0.0.0', port=3002, debug=cf.is_app_debug())
 
 if __name__ == '__main__':
     main()
