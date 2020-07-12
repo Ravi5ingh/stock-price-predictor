@@ -9,7 +9,7 @@ This is a PyCharm project with a virtual python environment (the 'venv' folder i
     <li>Launch PyCharm</li>
     <li>Create new project</li>
     <li>Select the folder that you cloned the source code to</li>
-    <li>This project was built with Python 3.7.2 x64 (Virtual Env) so select python environment accordingly</li>
+    <li>This project was built with Python 3.7.3 x64 (Virtual Env) so select python environment accordingly</li>
     <li>If you intend on using virtual environment, when PyCharm asks whether or not to create from existing sources? Say NO</li>
     <li>This will create a virtual environment for you</li>
     <li>In command prompt, navigate to the root directory and run the following commands:</li>
