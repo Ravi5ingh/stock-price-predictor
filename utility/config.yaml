@@ -1,0 +1,4 @@
+# This YAML file should serve is the central config for this web app
+
+# Flask app parameters
+debug: True

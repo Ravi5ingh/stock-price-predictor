@@ -3,6 +3,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys as sy
 import pickle as pkl
+import yaml as ym
+
+def read_yaml(file_name):
+    """
+    Read a YAML file and return the dictionary mapping
+    :param file_name: The file name of the YAML file
+    :return: The dictionary mapping
+    """
+
+    with open(file_name) as file:
+        return ym.load(file, Loader=ym.FullLoader)
 
 def read_pkl(file_name):
     """
