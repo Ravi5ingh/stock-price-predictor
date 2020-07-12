@@ -2,11 +2,10 @@ import flask as fl
 
 app = fl.Flask(__name__)
 
-# index webpage displays cool visuals and receives user input text for model
+# index web page displays cool visuals and receives user input text for model
 @app.route('/')
 @app.route('/index')
 def index():
-
     return fl.render_template('master.html')
 
 def main():
