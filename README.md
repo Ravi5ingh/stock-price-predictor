@@ -12,6 +12,11 @@ This is a PyCharm project with a virtual python environment (the 'venv' folder i
     <li>This project was built with Python 3.7.2 x64 (Virtual Env) so select python environment accordingly</li>
     <li>If you intend on using virtual environment, when PyCharm asks whether or not to create from existing sources? Say NO</li>
     <li>This will create a virtual environment for you</li>
+    <li>In command prompt, navigate to the root directory and run the following commands:</li>
+    <li>pip install pandas</li>
+    <li>pip install yfinance</li>
+    <li>pip install lxml</li>
+    <li>pip install matplotlib</li>
     <li>Right click on the file ./website/app.py and click run</li>
     <li>If there are no error messages, the website is running <a href="http://localhost:3001">here</a></li>
 </ol>
