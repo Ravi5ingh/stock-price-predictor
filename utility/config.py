@@ -13,7 +13,7 @@ def is_app_debug():
 
 __path_delimiter__ = {
     'nt': '\\',
-    'Linux': '/'
+    'posix': '/'
 }
 
 __yaml_config_file_name__ = __file__[0:__file__.rindex(__path_delimiter__[os.name])] + '\\config.yaml'
