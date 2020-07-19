@@ -11,11 +11,13 @@ def is_app_debug():
 
 #region Private
 
-__path_delimiter__ = {
+__path_delimiter_mapping__ = {
     'nt': '\\',
     'posix': '/'
 }
 
-__yaml_config_file_name__ = __file__[0:__file__.rindex(__path_delimiter__[os.name])] + '\\config.yaml'
+__path_delimiter__ = __path_delimiter_mapping__[os.name]
+
+__yaml_config_file_name__ = __file__[0:__file__.rindex(__path_delimiter__)] + f'{__path_delimiter__}config.yaml'
 
 #endregion
