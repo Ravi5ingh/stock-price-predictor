@@ -1,4 +1,5 @@
 import utility.util as ut
+import os
 
 def is_app_debug():
     """
@@ -10,6 +11,11 @@ def is_app_debug():
 
 #region Private
 
-__yaml_config_file_name__ = __file__[0:__file__.rindex('\\')] + '\\config.yaml'
+__path_delimiter__ = {
+    'nt': '\\',
+    'Linux': '/'
+}
+
+__yaml_config_file_name__ = __file__[0:__file__.rindex(__path_delimiter__[os.name])] + '\\config.yaml'
 
 #endregion
