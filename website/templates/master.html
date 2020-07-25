@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+
+<!-- Header (Meta-data and imports)-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,18 +17,60 @@
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Stock Price Predictor</a>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Stock Price Predictor</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/Ravi5ingh/stock-price-predictor">Contact</a></li>
+                </ul>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="https://github.com/Ravi5ingh/stock-price-predictor">Contact</a></li>
-            </ul>
+    </nav>
+
+    <!-- Title Section -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-left">Stock Price Predictor</h1>
+            <p class="text-left">This online portal is a live visualization of price prediction models of various equities. To use this portal, simple search for the stock with its symbol, and its predictions will be displayed.</p>
+            <hr />
+
+            <!-- Stock Symbol Input -->
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="stockSymbol" >Enter Stock Symbol Here:</label>&nbsp;&nbsp;
+                    <input type="text" class="form-control" id="stockSymbol" placeholder="eg. MSFT">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </form>
         </div>
     </div>
-</nav>
+
+    <!-- Visualizations -->
+    <div class="container">
+        {% block content %}
+            <div class="page-header">
+                <h1 class="text-center"></h1>
+            </div>
+        {% endblock %}
+
+        {% for id in ids %}
+            <div id="{{id}}"></div>
+        {% endfor %}
+    </div>
+
+    <!-- Plotly Visualizaion Script -->
+    <script type="text/javascript">
+        // This ia generic script that will just plot all the graphs for which metadata has been provided
+        const graphs = {{graphJSON | safe}};
+        const ids = {{ids | safe}};
+        for(let i in graphs) {
+            Plotly.plot(ids[i], graphs[i].data, graphs[i].layout);
+        }
+    </script>
 
 </body>
 </html>
