@@ -1,5 +1,5 @@
 # Stock Price Predictor
-This is the source code for an online app that shows live predictions of stock price movements.
+This is the source code for a web app that is being built to make predictions about equities and consequently buy/sell recommendations. This is very much a work in progress and the nightly build is running <a href="http://159.65.28.124:3002/">here<a>
 
 ## Setup
 This is a PyCharm project with a virtual python environment (the 'venv' folder is git ignored). To run this app locally, follow these instructions:
