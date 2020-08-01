@@ -9,6 +9,14 @@ def is_app_debug():
 
     return ut.read_yaml(__yaml_config_file_name__)['debug']
 
+def get_training_cutoff_date():
+    """
+    Get the training cut-off date
+    :return: A Date
+    """
+
+    return ut.read_yaml(__yaml_config_file_name__)['training_date_cutoff']
+
 #region Private
 
 __path_delimiter_mapping__ = {

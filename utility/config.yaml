@@ -2,3 +2,6 @@
 
 # Flask app parameters
 debug: True
+
+# This is the cutoff date for all stock price training data (ie. nothing after this can be used for training)
+training_date_cutoff: 2020-07-01
