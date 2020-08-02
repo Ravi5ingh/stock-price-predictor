@@ -17,7 +17,7 @@ class LastPriceModel:
 
         return prices_df.tail(1)['Close']
 
-    def predict_hist(selfs, prices_df):
+    def predict_hist(self, prices_df):
         """
         Takes in a window of prices and returns the predicted price for each day in the given window
         :param prices_df: The dataframe of the window of recent prices
