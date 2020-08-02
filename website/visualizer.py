@@ -2,6 +2,7 @@ import utility.util as ut
 import yfinance as yf
 import utility.config as cf
 import models.last_price as lp
+import models.linear_regression as lr
 import pandas as pd
 import numpy as np
 import datetime as dt
@@ -66,3 +67,41 @@ def get_last_day_predictions(symbol, period):
             )
     )
 
+def get_linear_regression_predictions(symbol, period, n):
+    """
+    Get the price predictions (historical and for tomorrow) based on the linear regression model
+    :param symbol: The stock symbol
+    :param period: The period to use for historical price prediction
+    :param n: The size of the moving window to use for the regression
+    :return: The viz data for the historical price prediction
+    """
+
+    cutoff_date = cf.get_training_cutoff_date()
+    stock_data = yf.Ticker(symbol).history(period=period).reset_index()
+
+    # prune the stock data so that it is all after the cut-off date
+    if stock_data['Date'][0] < np.datetime64(cutoff_date):
+        stock_data = stock_data[stock_data['Close'] >= cutoff_date]
+
+    model = lr.LinearRegressionModel(n)
+    predicted_df = model.predict_hist(stock_data)
+
+    return dict(
+            data=[
+                dict(
+                    x=predicted_df['Date'],
+                    y=predicted_df['Close'],
+                    type='line',
+                    name='Actual'
+                ),
+                dict(
+                    x=predicted_df['Date'],
+                    y=predicted_df['Predicted_Close'],
+                    type='line',
+                    name='Predicted'
+                )
+            ],
+            layout=dict(
+                title=f'Linear Regression Prediction Model for {symbol} with n = {n}'
+            )
+    )

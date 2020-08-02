@@ -19,7 +19,8 @@ def index():
     # Get visualization data for the charts we want to display
     graphs = [
         vz.get_stock_ts(stock_symbol, period='1Y'),
-        vz.get_last_day_predictions(stock_symbol, period='1mo')
+        vz.get_last_day_predictions(stock_symbol, period='1mo'),
+        vz.get_linear_regression_predictions(stock_symbol, period='1mo', n=5)
     ]
 
     # encode plotly graphs in JSON
