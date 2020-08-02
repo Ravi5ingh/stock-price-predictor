@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 import datetime as dt
+import sklearn.metrics as me
+import math as ma
 
 class LinearRegressionModel:
     """
@@ -56,17 +58,14 @@ class LinearRegressionModel:
             if index <= 1:
                 continue
 
-            if index == 21:
-                dd = 4
-
             start = max(0, index - n)
-            num = index - start
-
-            X = np.arange(num)
+            X = np.arange(index - start)
             Y = chart_df[start:index]['Close']
-
             m, b = np.polyfit(X, Y, deg=1)
 
             chart_df.at[index, 'Predicted_Close'] = m * n + b
 
-        return chart_df
+        mse = me.mean_squared_error(chart_df['Close'][:-1], chart_df['Predicted_Close'][:-1])
+        rmse = ma.sqrt(mse)
+
+        return chart_df, mse
