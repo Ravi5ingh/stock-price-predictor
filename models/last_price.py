@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import datetime as dt
+import sklearn.metrics as mt
+import math as ma
 
 class LastPriceModel:
     """
@@ -34,4 +36,7 @@ class LastPriceModel:
         }, ignore_index=True)
         chart_df['Predicted_Close'] = chart_df['Close'].shift(1)
 
-        return chart_df
+        mse = mt.mean_squared_error(chart_df['Close'][1:-1], chart_df['Predicted_Close'][1:-1])
+        rmse = ma.sqrt(mse)
+
+        return chart_df, rmse
