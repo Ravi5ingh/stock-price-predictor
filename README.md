@@ -24,4 +24,4 @@ This is a PyCharm project with a virtual python environment (the 'venv' folder i
 
 ## Architecture
 The following is the outline for the architecture for the project:
-![](viz/architecture.png)
+![](architecture.png)
