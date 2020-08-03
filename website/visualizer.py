@@ -45,7 +45,7 @@ def get_last_day_predictions(symbol, period):
         stock_data = stock_data[stock_data['Close'] >= cutoff_date]
 
     model = lp.LastPriceModel()
-    predicted_df = model.predict_hist(stock_data)
+    predicted_df, rmse = model.predict_hist(stock_data)
 
     return dict(
             data=[
@@ -84,7 +84,7 @@ def get_linear_regression_predictions(symbol, period, n):
         stock_data = stock_data[stock_data['Close'] >= cutoff_date]
 
     model = lr.LinearRegressionModel(n)
-    predicted_df = model.predict_hist(stock_data)
+    predicted_df, rmse = model.predict_hist(stock_data)
 
     return dict(
             data=[
