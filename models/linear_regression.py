@@ -65,7 +65,7 @@ class LinearRegressionModel:
 
             chart_df.at[index, 'Predicted_Close'] = m * n + b
 
-        mse = me.mean_squared_error(chart_df['Close'][:-1], chart_df['Predicted_Close'][:-1])
+        mse = me.mean_squared_error(chart_df['Close'][2:-1], chart_df['Predicted_Close'][2:-1])
         rmse = ma.sqrt(mse)
 
-        return chart_df, mse
+        return chart_df, rmse
