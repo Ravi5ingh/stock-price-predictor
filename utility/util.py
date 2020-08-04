@@ -5,6 +5,17 @@ import sys as sy
 import pickle as pkl
 import yaml as ym
 
+def read_txt(file_name):
+    """
+    Read a plain text (ASCII) file
+    :param file_name: The file name of the ASCII file
+    :return: The text content of the ASCII file
+    """
+
+    with open(file_name, 'r') as file:
+        return file.read()
+
+
 def read_yaml(file_name):
     """
     Read a YAML file and return the dictionary mapping
