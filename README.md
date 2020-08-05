@@ -1,6 +1,20 @@
 # Stock Price Predictor
 This is the source code for a web app that is being built to make predictions about equities and consequently buy/sell recommendations. This is very much a work in progress and the nightly build is running <a href="http://159.65.28.124:3002/">here<a>
 
+## Project Definition
+
+### Overview
+This is the source code for a web app whose main aim is to display the results of models created to try and predict the price movements of stocks. The models were trained exclusively on equities data but they are agnostic to the asset class. All the data has been sourced from Yahoo Finance.
+
+### Problem Statement
+The problem that needs to be solved is quite straight forward. We want to be able to accurately predict where the price of the stock will be in the next few days so that it could be used for buy/sell recommendations. The strategy is to experiment with different models until a suitable one is found. These models are discussed in more detail in the 'models' section.
+
+### Metrics
+The data used is the stock price data from Yahoo Finance. The metric used to assess a model is the root mean square error (RMSE).
+
+
+--------------
+
 ## Setup
 This is a PyCharm project with a virtual python environment (the 'venv' folder is git ignored). To run this app locally, follow these instructions:
 <ol>
