@@ -54,13 +54,13 @@ regressor.fit(x_train, y_train, epochs=400, batch_size=64)
 # Persist
 regressor.save('saved_models/model-epoch-600-bs-64-do-0.2-un-40-lr-0.00005')
 
-# regressor = km.load_model('model')
+# regressor = km.load_model('saved_models/model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005')
 
 # Make predictions on test set
 msft_test = ut.read_csv('msft_test.csv')
 real_stock_prices = msft_test.iloc[:,1:2].values
 
-dataset_total = pd.concat((msft_train['Open'], msft_test['Open']), axis=0)
+dataset_total = pd.concat((msft_train['High'], msft_test['High']), axis=0)
 inputs = dataset_total[len(dataset_total) - len(msft_test) - 50:].values
 inputs = inputs.reshape(-1,1)
 inputs = scaler.transform(inputs)
