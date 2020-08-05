@@ -4,7 +4,7 @@ import numpy as np
 import keras.models as km
 import keras.layers as kl
 import keras as kr
-import yfinance as yf
+# import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -49,10 +49,10 @@ adam = kr.optimizers.Adam(lr=0.00005)
 
 # Train the LSTM
 regressor.compile(optimizer=adam, loss='mean_squared_error', metrics=['accuracy'])
-regressor.fit(x_train, y_train, epochs=800, batch_size=64)
+regressor.fit(x_train, y_train, epochs=400, batch_size=64)
 
 # Persist
-regressor.save('saved_models/model-epoch-800-bs-64-do-0.2-un-40-lr-0.00005')
+regressor.save('saved_models/model-epoch-600-bs-64-do-0.2-un-40-lr-0.00005')
 
 # regressor = km.load_model('model')
 
