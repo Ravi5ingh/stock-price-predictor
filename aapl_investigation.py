@@ -19,8 +19,8 @@ training_set_scaled = scaler.fit_transform(training_set)
 
 x_train = []
 y_train = []
-for i in range(50, 2000):
-    x_train.append(training_set_scaled[i-50:i,0])
+for i in range(200, 2000):
+    x_train.append(training_set_scaled[i-200:i,0])
     y_train.append(training_set_scaled[i,0])
 
 x_train, y_train = np.array(x_train), np.array(y_train)
@@ -52,21 +52,21 @@ regressor.compile(optimizer=adam, loss='mean_squared_error', metrics=['accuracy'
 regressor.fit(x_train, y_train, epochs=400, batch_size=64)
 
 # Persist
-regressor.save('saved_models/aapl-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005')
+regressor.save('saved_models/aapl-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005-sa-200')
 
-# regressor = km.load_model('model')
+# regressor = km.load_model('saved_models/aapl-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005-sa-200')
 
 # Make predictions on test set
 aapl_test = ut.read_csv('aapl_test.csv')
 real_stock_prices = aapl_test.iloc[:,1:2].values
 
 dataset_total = pd.concat((aapl_train['Open'], aapl_test['Open']), axis=0)
-inputs = dataset_total[len(dataset_total) - len(aapl_test) - 50:].values
+inputs = dataset_total[len(dataset_total) - len(aapl_test) - 200:].values
 inputs = inputs.reshape(-1,1)
 inputs = scaler.transform(inputs)
 x_test = []
-for i in range(50, 568):
-    x_test.append(inputs[i-50:i, 0])
+for i in range(200, 718):
+    x_test.append(inputs[i-200:i, 0])
 
 x_test = np.array(x_test)
 x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
@@ -75,9 +75,9 @@ predicted_stock_price = regressor.predict(x_test)
 print(predicted_stock_price)
 predicted_stock_price = scaler.inverse_transform(predicted_stock_price)
 
-plt.plot(real_stock_prices, color='black', label='AAPL 100 Actual')
-plt.plot(predicted_stock_price, color='green', label='AAPL 100 Predicted')
-plt.title('AAPL 100 Predicted vs. Actual')
+plt.plot(real_stock_prices, color='black', label='AAPL Actual')
+plt.plot(predicted_stock_price, color='green', label='AAPL  Predicted')
+plt.title('AAPL Predicted vs. Actual')
 plt.xlabel('Time')
 plt.ylabel('Price')
 plt.legend()
