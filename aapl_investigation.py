@@ -57,7 +57,7 @@ regressor.save('saved_models/aapl-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005'
 # regressor = km.load_model('model')
 
 # Make predictions on test set
-aapl_test = ut.read_csv('ftse_test.csv')
+aapl_test = ut.read_csv('aapl_test.csv')
 real_stock_prices = aapl_test.iloc[:,1:2].values
 
 dataset_total = pd.concat((aapl_train['Open'], aapl_test['Open']), axis=0)
