@@ -7,6 +7,7 @@ import keras as kr
 # import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
+import statistics as st
 
 ut.widen_df_display()
 
@@ -29,59 +30,66 @@ x_train, y_train = np.array(x_train), np.array(y_train)
 
 x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
-# Build the LSTM
-regressor = km.Sequential()
+# # Build the LSTM
+# regressor = km.Sequential()
+#
+# regressor.add(kl.LSTM(units=40, return_sequences=True, input_shape=(x_train.shape[1], 1)))
+# regressor.add(kl.Dropout(0.2))
+#
+#
+# regressor.add(kl.LSTM(units=40, return_sequences=True))
+# regressor.add(kl.Dropout(0.2))
+#
+# regressor.add(kl.LSTM(units=40, return_sequences=True))
+# regressor.add(kl.Dropout(0.2))
+#
+# regressor.add(kl.LSTM(units=40))
+# regressor.add(kl.Dropout(0.2))
+#
+# regressor.add(kl.Dense(units=1))
+#
+# adam = kr.optimizers.Adam(lr=0.00005)
+#
+# # Train the LSTM
+# regressor.compile(optimizer=adam, loss='mean_squared_error', metrics=['accuracy'])
+# regressor.fit(x_train, y_train, epochs=400, batch_size=64)
+#
+# # Persist
+# regressor.save('saved_models/msft-pc-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005')
 
-regressor.add(kl.LSTM(units=40, return_sequences=True, input_shape=(x_train.shape[1], 1)))
-regressor.add(kl.Dropout(0.2))
-
-
-regressor.add(kl.LSTM(units=40, return_sequences=True))
-regressor.add(kl.Dropout(0.2))
-
-regressor.add(kl.LSTM(units=40, return_sequences=True))
-regressor.add(kl.Dropout(0.2))
-
-regressor.add(kl.LSTM(units=40))
-regressor.add(kl.Dropout(0.2))
-
-regressor.add(kl.Dense(units=1))
-
-adam = kr.optimizers.Adam(lr=0.00005)
-
-# Train the LSTM
-regressor.compile(optimizer=adam, loss='mean_squared_error', metrics=['accuracy'])
-regressor.fit(x_train, y_train, epochs=400, batch_size=64)
-
-# Persist
-regressor.save('saved_models/msft-pc-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005')
-
-# regressor = km.load_model('saved_models/aapl-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005-sa-200')
+regressor = km.load_model('saved_models/msft-pc-model-epoch-400-bs-64-do-0.2-un-40-lr-0.00005')
 
 # Make predictions on test set
 msft_test = ut.read_csv('msft_test.csv')
 real_stock_prices = msft_test.iloc[:,0].values
 
+# Build total dataframe
 msft = pd.concat((msft_train, msft_test), axis=0)
-
 msft['Open_Delta'] = (msft['Open'] - msft['Open'].shift(1)) / msft['Open']
 msft.at[0, 'Open_Delta'] = 0
 
+# Build x_test
 inputs = msft['Open_Delta'][len(msft) - len(msft_test) - 50:].values
-inputs = inputs.reshape(-1,1)
+inputs_reshaped = inputs.reshape(-1,1)
 
-# dataset_total = pd.concat((msft_train['Open'], msft_test['Open']), axis=0)
-# inputs = dataset_total[len(dataset_total) - len(msft_test) - 50:].values
-# inputs = inputs.reshape(-1,1)
-# inputs = scaler.transform(inputs)
 x_test = []
-for i in range(50, 568):
-    x_test.append(inputs[i-50:i, 0])
+for i in range(50, len(msft_test) + 50):
+    x_test.append(inputs_reshaped[i-50:i, 0])
 
 x_test = np.array(x_test)
 x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
-print(x_test)
-predicted_stock_price = regressor.predict(x_test)
+
+# Predict
+predicted_stock_pc = regressor.predict(x_test)
+
+# Convert %age change to actual stock price
+predicted_stock_price = []
+last_price = msft_train['Open'][len(msft_train) - 1]
+for i in range(0, len(predicted_stock_pc)):
+    curr_price = last_price + last_price * predicted_stock_pc[i]
+    predicted_stock_price.append(curr_price)
+    last_price = real_stock_prices[i]
+
 print(predicted_stock_price)
 
 plt.plot(real_stock_prices, color='black', label='MSFT Actual')
