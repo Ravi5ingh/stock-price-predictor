@@ -291,3 +291,11 @@ The training and prediction was the same as before (except the third dimension o
 ![](viz/LSTM AAPL MV-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)
 
 As you can see, this is what produced the best results so far so this is the current setup for my LSTM model training.
+
+## Conclusion
+The original problem statement was that we need to be able to predict stock prices. From building, the initial LSTM, I have make several changes in the metrics and training and I have ended up with a much better model that is able to capture, at least, the general trend of the price movements.
+
+### Improvements
+If I had more time, I would investigate the following points:
+- I would use GridSearch and fine tune my model parameters on the cloud.
+- I would augment the model with some statistical analysis. We know that when the model is asked to predict the price value, there is a downward pressure on the prediction when we go further into the future. I believe I may be able to find a relationship between the actual price deviation and the prediction error. If such a relation exists, it could be used to correct the output values of the LSTM.

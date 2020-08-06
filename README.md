@@ -12,8 +12,8 @@ The problem that needs to be solved is quite straight forward. We want to be abl
 ### Metrics
 The data used is the stock price data from Yahoo Finance. The metric used to assess a model is the root mean square error (RMSE).
 
-
---------------
+## Analysis & Conclusion
+The full investigation process is detailed in the 'models' folder.
 
 ## Setup
 This is a PyCharm project with a virtual python environment (the 'venv' folder is git ignored). To run this app locally, follow these instructions:
