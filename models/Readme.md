@@ -40,7 +40,7 @@ As the name suggests, this model uses linear regression on the last n days to pr
 
 As you can see from the chart above, the linear regression model essentially uses the price momentum to make predictions. The hyper-parameter here is n which means we perform linear regression on the n most recent days. The next logical thing to do is to find the optimal value for n (ie. one that minimizes the RMSE). For this reason, I looked at the relation between n and RMSE. Based on the same data, I plotted RMSE vs. n and this is what I got:
 
-![](viz/RMSE vs max n 10.png)
+![](viz/RMSE-vs-max-n-10.png)
 
 What we can see above is that n = 3 is the ideal value for linear regression. To satisfy, my curiosity, I decided to see:
 1. What happens at higher values of n
@@ -48,7 +48,7 @@ What we can see above is that n = 3 is the ideal value for linear regression. To
 
 To address, the first question, I took the value of max n to 100 and the following is what I got:
 
-![](viz/RMSE vs max n 50.png)
+![](viz/RMSE-vs-max-n-50.png)
 
 As we can see from the above, extending n does not bring down RMSE.
 
@@ -56,8 +56,8 @@ The following are the same charts for Google, Tesla, Apple, FTSE:
 
 | | | 
 |:-------------------------:|:-------------------------:|
-![](viz/RMSE vs max n 10 AAPL.png)|![](viz/RMSE vs max n 10 GOOG.png)
-![](viz/RMSE vs max n 10 TSLA.png)|![](viz/RMSE vs max n 10 FTSE 100.png)
+![](viz/RMSE-vs-max-n-10-AAPL.png)|![](viz/RMSE-vs-max-n-10-GOOG.png)
+![](viz/RMSE-vs-max-n-10-TSLA.png)|![](viz/RMSE-vs-max-n-10-FTSE-100.png)
 
 As you can see from the charts above, the ideal value for n always hovers around the 3-5 mark. I believe this uniformity may be a result of the fact that the volatility on a daily basis is not that different between different stocks.
 
