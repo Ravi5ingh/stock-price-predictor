@@ -1,6 +1,8 @@
 # Stock Price Predictor
 This is the source code for a web app that is being built to make predictions about equities. This is very much a work in progress and the nightly build is running <a href="http://159.65.28.124:3002/">here<a>
 
+This project has a train, test workflow setup. In case you would like to add a new stock, it is very simple to do and ('models/MCD') can be looked at for example.
+
 ## Project Definition
 
 ### Overview
