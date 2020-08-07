@@ -36,7 +36,7 @@ As you can see the predicted prices are just the same chart right shifted by a d
 ## Model 2: Linear Regression
 As the name suggests, this model uses linear regression on the last n days to predict what the price will be on the next day. This model is also based on the idea that price movements have a certain trend over a given amount of time and this can be captured by linear regression. I ran MSFT data through this model with n = 5 for the last 100 days. The following is what I got:
 
-![](viz/MSFT LR 100 days.png)
+![](viz/MSFT/MSFT LR 100 days.png)
 
 As you can see from the chart above, the linear regression model essentially uses the price momentum to make predictions. The hyper-parameter here is n which means we perform linear regression on the n most recent days. The next logical thing to do is to find the optimal value for n (ie. one that minimizes the RMSE). For this reason, I looked at the relation between n and RMSE. Based on the same data, I plotted RMSE vs. n and this is what I got:
 
