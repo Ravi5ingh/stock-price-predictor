@@ -23,6 +23,7 @@ def index():
         vz.get_linear_regression_predictions(stock_symbol, period='2mo', n=5),
         vz.get_lstm_predictions('IBM'),
         vz.get_lstm_predictions('DIS'),
+        vz.get_lstm_predictions('QCOM'),
         vz.get_lstm_predictions('MCD'),
         vz.get_lstm_predictions('GS')
     ]
