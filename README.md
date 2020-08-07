@@ -1,5 +1,5 @@
 # Stock Price Predictor
-This is the source code for a web app that is being built to make predictions about equities and consequently buy/sell recommendations. This is very much a work in progress and the nightly build is running <a href="http://159.65.28.124:3002/">here<a>
+This is the source code for a web app that is being built to make predictions about equities. This is very much a work in progress and the nightly build is running <a href="http://159.65.28.124:3002/">here<a>
 
 ## Project Definition
 
@@ -32,6 +32,15 @@ This is a PyCharm project with a virtual python environment (the 'venv' folder i
     <li>pip install lxml</li>
     <li>pip install matplotlib</li>
     <li>pip install pyyaml</li>
-    <li>Right click on the file ./website/app.py and click run</li>
+    <li>pip install sklearn</li>
+    <li>pip install keras</li>
+    <li>pip install tensorflow</li>
+    <li>pip install keras</li>
+    <li>pip install numpy</li>
+    <li>pip install keras</li>
+    <li>pip install flask</li>
+    <li>pip install json</li>
+    <li>pip install plotly</li>
+    <li>In the root dir, run 'python -m website.run'</li>
     <li>If there are no error messages, the website is running <a href="http://localhost:3001">here</a></li>
 </ol>
