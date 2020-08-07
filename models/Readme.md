@@ -199,7 +199,7 @@ This result seems completely counter-intuitive until I realized that I had an ov
 | | | 
 |:-------------------------:|:-------------------------:|
 ![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=5.png)|![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=20-bs=64-do=0.2.png)
-![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=50-bs=64-do=0.2.png)|![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt MSFT-epochs=60-bs=64-do=0.2.png)
+![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=50-bs=64-do=0.2.png)|![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=60-bs=64-do=0.2.png)
 ![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=70-bs=64-do=0.2.png)|![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=100-bs=64-do=0.2.png)
 
 #### Varying Units
@@ -221,8 +221,8 @@ The next parameter that I varied allowed my model to give better results so far.
 
 | | | 
 |:-------------------------:|:-------------------------:|
-![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=50-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)
-![](viz/MSFT/4_low_lr/LSTM%20first attempt%20MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt MSFT-epochs=150-bs=64-do=0.2-un=40-lr=0.00001.png)
+![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=50-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)
+![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=150-bs=64-do=0.2-un=40-lr=0.00001.png)
 ![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=250-bs=64-do=0.2-un=40-lr=0.00001.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=300-bs=64-do=0.2-un=40-lr=0.00005.png)
 ![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=500-bs=64-do=0.2-un=40-lr=0.00005.png)
 ![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=600-bs=64-do=0.2-un=40-lr=0.00005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=800-bs=64-do=0.2-un=40-lr=0.0005.png)
