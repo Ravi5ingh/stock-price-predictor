@@ -88,7 +88,7 @@ To start off, I decided to create a bare bones LSTM based on MSFT's stock price 
 ### Pre-processing
 The Keras implementation of LSTM requires training data to have 3 dimensions for sample size, time steps, and input dimensions respectively. The following diagram illustrates this:
 
-![](viz/LSTM data shape.png)
+![](viz/LSTM-data-shape.png)
 
 <a href="https://cdn-images-1.medium.com/freeze/max/1000/1*v5_QpzkQfufVogeCY9eaOw.png?q=20">Source<a>
 
@@ -198,21 +198,21 @@ This result seems completely counter-intuitive until I realized that I had an ov
 
 | | | 
 |:-------------------------:|:-------------------------:|
-![](viz/MSFT/1_var_epoch/LSTM first attempt MSFT-epochs=5.png)|![](viz/MSFT/1_var_epoch/LSTM first attempt MSFT-epochs=20-bs=64-do=0.2.png)
-![](viz/MSFT/1_var_epoch/LSTM first attempt MSFT-epochs=50-bs=64-do=0.2.png)|![](viz/MSFT/1_var_epoch/LSTM first attempt MSFT-epochs=60-bs=64-do=0.2.png)
-![](viz/MSFT/1_var_epoch/LSTM first attempt MSFT-epochs=70-bs=64-do=0.2.png)|![](viz/MSFT/1_var_epoch/LSTM first attempt MSFT-epochs=100-bs=64-do=0.2.png)
+![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=5.png)|![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=20-bs=64-do=0.2.png)
+![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=50-bs=64-do=0.2.png)|![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt MSFT-epochs=60-bs=64-do=0.2.png)
+![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=70-bs=64-do=0.2.png)|![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=100-bs=64-do=0.2.png)
 
 #### Varying Units
 As you can see the model performs best when trained for 30-50 epochs. The next thing I tried was to vary the number of units in the LSTM. I put them up to 70 from 40 and the following was the results with 60 epochs:
 
- ![](viz/MSFT/2_var_un/LSTM first attempt MSFT-epochs=60-bs=64-do=0.2-un=70.png)
+ ![](viz/MSFT/2_var_un/LSTM%20first%20attempt%20MSFT-epochs=60-bs=64-do=0.2-un=70.png)
  
 At this point, one might ask why I did not use GridSearch. The answer was simply that performing a grid search for this use case would have been extremely resource intensive and can only be practically accomplished with larger infrastructure (like the cloud). Besides, manually fine tuning the parameters gave me an opportunity to get a better understanding.
 
 #### Varying Batch Size
 The next thing I tried was to vary the batch size. I put this up from 32 to the maximum of 1950 (because we have 1950 samples) and this is the chart that I got (keeping previous parameters constant):
  
- ![](viz/MSFT/3_var_bs/LSTM first attempt MSFT-epochs=100-bs=1950-do=0.5.png)
+ ![](viz/MSFT/3_var_bs/LSTM%20first%20attempt%20MSFT-epochs=100-bs=1950-do=0.5.png)
  
 This did not seem to make a big difference in pushing the chart up so I put the sample size back to 64 (which is generally a good size to use). I lowered the batch size because a batch size as large as the whole sample size does not allow the model to learn recurring patterns in the data.
 
@@ -221,12 +221,12 @@ The next parameter that I varied allowed my model to give better results so far.
 
 | | | 
 |:-------------------------:|:-------------------------:|
-![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=50-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)
-![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=150-bs=64-do=0.2-un=40-lr=0.00001.png)
-![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=250-bs=64-do=0.2-un=40-lr=0.00001.png)|![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=300-bs=64-do=0.2-un=40-lr=0.00005.png)
-![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)|![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=500-bs=64-do=0.2-un=40-lr=0.00005.png)
-![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=600-bs=64-do=0.2-un=40-lr=0.00005.png)|![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=800-bs=64-do=0.2-un=40-lr=0.0005.png)
-![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=1600-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM first attempt MSFT-epochs=5000-bs=64-do=0.2-un=40-lr=0.000005.png)
+![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=50-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)
+![](viz/MSFT/4_low_lr/LSTM%20first attempt%20MSFT-epochs=100-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt MSFT-epochs=150-bs=64-do=0.2-un=40-lr=0.00001.png)
+![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=250-bs=64-do=0.2-un=40-lr=0.00001.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=300-bs=64-do=0.2-un=40-lr=0.00005.png)
+![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=500-bs=64-do=0.2-un=40-lr=0.00005.png)
+![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=600-bs=64-do=0.2-un=40-lr=0.00005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=800-bs=64-do=0.2-un=40-lr=0.0005.png)
+![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=1600-bs=64-do=0.2-un=40-lr=0.0005.png)|![](viz/MSFT/4_low_lr/LSTM%20first%20attempt%20MSFT-epochs=5000-bs=64-do=0.2-un=40-lr=0.000005.png)
 
 As you can see above, the best results were obtained with 400 epochs and a learning rate of 5e-4. Now fine tuning the parameters has evidently produced far better results than the first model which essentially just flat-lined but still what we can see is that there is a significant downward pressure on the predictions as we look further into the future and the stock price goes up. 
 
@@ -257,11 +257,11 @@ for i in range(0, len(predicted_stock_pc)):
 
 Keeping all other parameters at their ideal level, this is what I got:
 
-![](viz/MSFT/5_pc/LSTM first attempt MSFT pc-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)
+![](viz/MSFT/5_pc/LSTM%20first%20attempt%20MSFT%20pc-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)
 
 At first glance, this prediction looks extremely accurate but a closer look reveals a problem. If you look closely, the predicted chart is just the right shifted chart of actual values. This indicates that the LSTM has actually trained onto the last price model!. To take a closer look, I charted the predicted vs. actual percentage changes (instead of the real stock price) and this is what I got:
 
-![](viz/MSFT/5_pc/LSTM first attempt MSFT pc only-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)
+![](viz/MSFT/5_pc/LSTM%20first%20attempt%20MSFT%20pc%20only-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)
 
 This chart is more helpful in diagnosing the problem. What we see here is a price change that is very volatile and noise. The predicted value seldom deviates from 0. What is happening here is that the LSTM isn't able to converge onto any meaningful pattern becuase the percentage change training data is very volatile and noise. The result is that the LSTM model effectively converges onto the last price model.
 
@@ -288,7 +288,7 @@ aapl_train = aapl_train.drop(['Date', 'High', 'Low', 'Close', 'Volume', 'Dividen
 
 The training and prediction was the same as before (except the third dimension of the training data was 6 instead of 1). The following is the chart that I got:
 
-![](viz/LSTM AAPL MV-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)
+![](viz/LSTM%20AAPL%20MV-epochs=400-bs=64-do=0.2-un=40-lr=0.00005.png)
 
 As you can see, this is what produced the best results so far so this is the current setup for my LSTM model training.
 
