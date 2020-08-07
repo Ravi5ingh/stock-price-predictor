@@ -114,10 +114,9 @@ def get_lstm_predictions(symbol):
     :return:
     """
 
-    train_df = pd.read_csv(f'../models/{symbol}/{symbol}_train.csv')
-    test_df = pd.read_csv(f'../models/{symbol}/{symbol.lower()}_test.csv')
+    test_df = pd.read_csv(f'models/{symbol}/{symbol.lower()}_test.csv')
 
-    chart_df = pd.read_csv(f'../models/{symbol}/chart_df.csv')
+    chart_df = pd.read_csv(f'models/{symbol}/chart_df.csv')
 
     return dict(
             data=[
