@@ -114,12 +114,12 @@ def get_lstm_predictions(symbol):
     :return:
     """
 
-    train_df = pd.read_csv(f'models/{symbol}/{symbol}_train.csv')
-    test_df = pd.read_csv(f'models/{symbol}/{symbol.lower()}_test.csv')
+    train_df = pd.read_csv(f'../models/{symbol}/{symbol}_train.csv')
+    test_df = pd.read_csv(f'../models/{symbol}/{symbol.lower()}_test.csv')
 
     model = ls.LongShortTermMemoryModel()
 
-    chart_df, rmse = model.predict(train_df, test_df, f'models/{symbol}/lstm_model', f'models/{symbol}/scaler.pkl')
+    chart_df, rmse = model.predict(train_df, test_df, f'../models/{symbol}/lstm_model', f'../models/{symbol}/scaler.pkl')
 
     return dict(
             data=[
