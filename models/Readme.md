@@ -29,7 +29,7 @@ The limit for free usage is 2,000 requests/hour per IP which is more than suffic
 ## Model 1: Last Price
 What we are trying to do here is predict stock prices. The problem is one of time series analysis. To be more specific, stock price movements can be understood or modelled as brownian motion. For this reason, when assessing the accuracy of any model, it should be benchmarked against the last price model as this is the most naive prediction of where the stock price will be at time t + 1. The model predicts the price at t + 1 to be the same as the price as t. The following is a chart to visualize what this looks like for MSFT for a 100 day prediction:
 
-![](viz/MSFT LP 100 days.png)
+![](viz/MSFTLP100days.png)
 
 As you can see the predicted prices are just the same chart right shifted by a day.
 
