@@ -21,7 +21,8 @@ def index():
         vz.get_stock_ts(stock_symbol, period='1Y'),
         vz.get_last_day_predictions(stock_symbol, period='2mo'),
         vz.get_linear_regression_predictions(stock_symbol, period='2mo', n=5),
-        vz.get_lstm_predictions('IBM')
+        vz.get_lstm_predictions('IBM'),
+        vz.get_lstm_predictions('DIS')
     ]
 
     # encode plotly graphs in JSON

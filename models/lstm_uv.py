@@ -95,6 +95,10 @@ class LongShortTermMemoryModel:
 
         predicted_stock_price = np.array(predicted_stock_price).flatten()
 
+        shorter_len = min(len(predicted_stock_price), len(real_stock_prices))
+        predicted_stock_price = predicted_stock_price[:shorter_len]
+        real_stock_prices = real_stock_prices[:shorter_len]
+
         chart_df = pd.DataFrame()
         chart_df['Predicted'] = predicted_stock_price
         chart_df['Actual'] = real_stock_prices
