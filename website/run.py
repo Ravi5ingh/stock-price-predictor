@@ -24,6 +24,7 @@ def index():
         vz.get_lstm_predictions('IBM'),
         vz.get_lstm_predictions('DIS'),
         vz.get_lstm_predictions('MCD'),
+        vz.get_lstm_predictions('GS')
     ]
 
     # encode plotly graphs in JSON
