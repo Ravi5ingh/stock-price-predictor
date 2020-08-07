@@ -93,6 +93,8 @@ class LongShortTermMemoryModel:
         print(predicted_stock_price)
         predicted_stock_price = scaler.inverse_transform(predicted_stock_price)
 
+        predicted_stock_price = np.array(predicted_stock_price).flatten()
+
         chart_df = pd.DataFrame()
         chart_df['Predicted'] = predicted_stock_price
         chart_df['Actual'] = real_stock_prices

@@ -6,6 +6,7 @@ import models.linear_regression as lr
 import pandas as pd
 import numpy as np
 import datetime as dt
+import models.lstm_uv as ls
 
 def get_stock_ts(symbol, period):
     """
@@ -105,3 +106,38 @@ def get_linear_regression_predictions(symbol, period, n):
                 title=f'Linear Regression Prediction Model for {symbol} with n = {n}'
             )
     )
+
+def get_lstm_predictions(symbol):
+    """
+
+    :param symbol:
+    :return:
+    """
+
+    train_df = pd.read_csv(f'models/{symbol}/{symbol}_train.csv')
+    test_df = pd.read_csv(f'models/{symbol}/{symbol.lower()}_test.csv')
+
+    model = ls.LongShortTermMemoryModel()
+
+    chart_df, rmse = model.predict(train_df, test_df, f'models/{symbol}/lstm_model', f'models/{symbol}/scaler.pkl')
+
+    return dict(
+            data=[
+                dict(
+                    x=test_df['Date'],
+                    y=chart_df['Actual'],
+                    type='line',
+                    name='Actual'
+                ),
+                dict(
+                    x=test_df['Date'],
+                    y=chart_df['Predicted'],
+                    type='line',
+                    name='Predicted'
+                )
+            ],
+            layout=dict(
+                title=f'LSTM model predictions for {symbol}'
+            )
+    )
+
