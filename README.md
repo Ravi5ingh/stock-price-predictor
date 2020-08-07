@@ -3,6 +3,39 @@ This is the source code for a web app that is being built to make predictions ab
 
 This project has a train, test workflow setup. In case you would like to add a new stock, it is very simple to do and ('models/MCD') can be looked at for example.
 
+## Libraries Used
+pip install pandas
+pip install yfinance
+pip install lxml
+pip install matplotlib
+pip install pyyaml
+pip install sklearn
+pip install keras
+pip install tensorflow
+pip install keras
+pip install numpy
+pip install keras
+pip install flask
+pip install json
+pip install plotly
+
+## Motivation
+To predict stock prices
+
+## Files
+models/ - all the investigation data
+
+utility/ - all useful funcationality
+
+website/ - functionality to host the app with flask
+
+## Summary
+Please look here: (https://github.com/Ravi5ingh/stock-price-predictor/tree/master/models#conclusion)
+
+## Acknowledgement
+A source link has been included next to every image  that was sourced externally
+    
+
 ## Project Definition
 
 ### Overview
