@@ -1,5 +1,5 @@
 import yfinance as yf
-import models.lstm as ls
+import models.lstm_uv as ls
 import pandas as pd
 
 # Get and save the data
