@@ -191,7 +191,7 @@ After I did this, the following is the chart I got:
 
 As you can see above, the trained model is completely useless. It starts off under-predicting the stock price and never breaches the $120 threshold. After tinkering with a few parameters for a while, I reduced the epochs to 20 (instead of a 100) and the following is what I got:
 
-![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT%20-%20epochs=20.png)
+![](viz/MSFT/1_var_epoch/LSTM%20first%20attempt%20MSFT-epochs=20.png)
 
 #### Varying Epochs
 This result seems completely counter-intuitive until I realized that I had an over-fitting problem. The fundamental problem with using machine learning on equities data is that equities tend to go up over the long term and the train test split has to be from old to new (to prevent the model from cheating with future data). This basically means that the model is 'used' to lower prices which puts a downward pressure on its predictions. Reducing the epochs mitigates the over-fitting problem but it is not the final solution. I tried to perform the same training with a number of different epochs and the following are the results I got:
