@@ -94,7 +94,7 @@ The Keras implementation of LSTM requires training data to have 3 dimensions for
 
 So in our case, we need to convert our 1 dimensional time series data to a 3-dimensional normalized data. To get multiple samples, we simply have to convert the 1-D time series to a set of staggered time series each shifted by 1 day. The following diagram illustrates this:
 
-![](viz/LSTM%20TS%20shape.png)
+![](viz/LSTM-TS-shape.png)
 
 As you can see above, we have now expanded our 1D data to 2D data where each row is 1 sample each column is the nth element in that sample. As for the third dimension (ie. input dimensions), this will be 1 for us as we only have 1 input feature right now (ie. price).
 
